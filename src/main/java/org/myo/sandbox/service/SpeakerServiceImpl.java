@@ -1,14 +1,19 @@
 package org.myo.sandbox.service;
 
 import org.myo.sandbox.model.Speaker;
-import org.myo.sandbox.repository.HibernateSpeakerRepositoryImpl;
 import org.myo.sandbox.repository.SpeakerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 public class SpeakerServiceImpl implements SpeakerService {
 
-    private final SpeakerRepository repository = new HibernateSpeakerRepositoryImpl();
+    @Autowired
+    private  SpeakerRepository repository; // = new HibernateSpeakerRepositoryImpl();
+
+    public SpeakerServiceImpl(SpeakerRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public List<Speaker> findAll() {
