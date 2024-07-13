@@ -14,6 +14,7 @@ public class Main {
 
 
         System.out.println(service.findAll().get(0).getFirstName() );
+        System.out.println(service.findAll().get(0).getSeedNum() );
 
     }
 }
